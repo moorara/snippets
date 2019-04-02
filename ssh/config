@@ -1,0 +1,85 @@
+## Enabling SSH over HTTPS for GitHub
+##
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+
+
+## Shortcut
+##
+##   SSH to node:  ssh <node_name>
+##
+
+Host <node_name>
+  Hostname <public_ip>
+  User <ssh_user>
+  IdentityFile <ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+
+
+## SSH to a node through bastion
+##
+##   ssh 10.10.100.100
+##
+
+Host bastion
+  Hostname <public_ip>
+  User <ssh_user>
+  IdentityFile <ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+Host 10.10.*.*
+  User <ssh_user>
+  IdentityFile <ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+  ProxyJump bastion
+
+
+## Tunneling to a service through bastion
+##
+##   Opening a TCP tunnel:   ssh -F <ssh_config_file> -M -fnNT <service_name>
+##   Closing a TCP tunnel:   ssh -F <ssh_config_file> -O exit <service_name>
+##
+
+Host <service_name>
+  HostName <bastion_public_ip>
+  User <bastion_ssh_user>
+  IdentityFile <bastion_ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+  Localforward 3307 <service_local_port> <service_address>:<service_remote_port>
+  ControlPath <ssh_control_path>
+
+
+## Tunneling to a Docker socket through bastion
+##
+##   Opening a sock tunnel:  ssh -F $ssh_config_file -M -fnNT $node
+##   Closing a tunnel:       ssh -F $ssh_config_file -O exit $node
+##
+##   Opening a new shell:    DOCKER_HOST=127.0.0.1:2374 PS1="docker-node> " bash
+##
+
+Host bastion
+  HostName <public_ip>
+  User <ssh_user>
+  IdentityFile <ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+Host <node_name>
+  HostName <private_ip>
+  User <ssh_user>
+  IdentityFile <ssh_key_path>
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel error
+  ProxyJump bastion
+  Localforward 127.0.0.1:2374:/var/run/docker.sock
+  ControlPath <ssh_control_path>
