@@ -1,3 +1,3 @@
 # Snippets
 
-Miscellaneous code snippets for personal use.
+Miscellaneous code snippets and dot files for personal use.
