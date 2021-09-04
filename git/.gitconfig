@@ -3,6 +3,8 @@
 [core]
   editor = vim
 
+[init]
+  defaultBranch = main
 [push]
   default = simple
 [pull]
@@ -22,3 +24,8 @@
 [url "https://github.com/moorara/"]
   insteadOf = git@github.com:moorara/
   insteadOf = ssh://git@github.com/moorara/
+
+
+# Including git configurations conditionally
+# [includeIf "gitdir:~/src/github.com/moorara/"]
+#   path = .gitconfig-moorara
