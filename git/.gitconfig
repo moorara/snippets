@@ -1,0 +1,24 @@
+[color]
+  ui = auto
+[core]
+	editor = vim
+
+[push]
+  default = simple
+[pull]
+  rebase = true
+[rebase]
+  autoStash = true
+
+[user]
+	name = Milad Irannejad
+	email = moorara@users.noreply.github.com
+	signingkey = TBD
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+
+[url "https://github.com/moorara/"]
+	insteadOf = git@github.com:moorara/
+	insteadOf = ssh://git@github.com/moorara/
