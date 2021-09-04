@@ -1,7 +1,7 @@
 [color]
   ui = auto
 [core]
-	editor = vim
+  editor = vim
 
 [push]
   default = simple
@@ -11,14 +11,14 @@
   autoStash = true
 
 [user]
-	name = Milad Irannejad
-	email = moorara@users.noreply.github.com
-	signingkey = TBD
+  name = Milad Irannejad
+  email = moorara@users.noreply.github.com
+  signingkey = TBD
 [commit]
-	gpgSign = true
+  gpgSign = true
 [tag]
-	gpgSign = true
+  gpgSign = true
 
 [url "https://github.com/moorara/"]
-	insteadOf = git@github.com:moorara/
-	insteadOf = ssh://git@github.com/moorara/
+  insteadOf = git@github.com:moorara/
+  insteadOf = ssh://git@github.com/moorara/
