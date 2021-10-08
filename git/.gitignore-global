@@ -1,0 +1,3 @@
+# These globs will be ignored across all repositories
+.DS_Store
+.vscode
