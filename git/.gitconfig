@@ -1,5 +1,7 @@
 [color]
   ui = auto
+[pager]
+  branch = false
 [core]
   editor = vim
   excludesfile = /Users/milad/.gitignore-global
@@ -25,7 +27,6 @@
 [url "https://github.com/moorara/"]
   insteadOf = git@github.com:moorara/
   insteadOf = ssh://git@github.com/moorara/
-
 
 # Including git configurations conditionally
 # [includeIf "gitdir:~/src/github.com/moorara/"]
