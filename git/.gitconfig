@@ -24,9 +24,14 @@
 [tag]
   gpgSign = true
 
-[url "https://github.com/moorara/"]
-  insteadOf = git@github.com:moorara/
-  insteadOf = ssh://git@github.com/moorara/
+# SSH over HTTPS
+# [url "git@github.com:moorara/"]
+#   insteadOf = https://github.com/moorara/
+
+# HTTPS over SSH
+# [url "https://github.com/moorara/"]
+#   insteadOf = git@github.com:moorara/
+#   insteadOf = ssh://git@github.com/moorara/
 
 # Including git configurations conditionally
 # [includeIf "gitdir:~/src/github.com/moorara/"]
