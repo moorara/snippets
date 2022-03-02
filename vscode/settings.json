@@ -1,0 +1,7 @@
+{
+    "editor.tabSize": 2,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "go.useLanguageServer": false
+}
